@@ -31,14 +31,14 @@
                 <a class="nav-link" href="#">All Products</a>
               </li>
             </ul>
-            <form class="d-flex me-2 mb-2">
+            <form class="d-flex my-2 mx-0 my-lg-0 mx-lg-1">
               <button class="btn btn-outline-light" type="submit">
                 <i class="bi-bag me-1"></i>
                 Cart 
                 <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
               </button>
             </form>
-            <form class="d-flex me-2 mb-2">
+            <form class="d-flex my-2 mx-0 my-lg-0 mx-lg-1" >
               <button class="btn btn-outline-light" type="submit">
                 <i class="bi-person"></i>
                 Account
@@ -48,9 +48,8 @@
       </div>
     </nav>
 
-    <!-- data-bs-ride="carousel" data-bs-interval="3000" -->
-    <section class="container-fluid container-lg">
-      <div id="hero-carousel" class="carousel slide">
+    <section class="container-fluid container-lg" style="padding: 0">
+      <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -59,13 +58,13 @@
         <div class="carousel-inner">
           <div class="carousel-item active c-item">
             <img src="./src/assets/hero-2.jpg" class="d-block w-100 c-img" alt="...">
-            <div class="carousel-caption text-white">
+            <div class="carousel-caption custom-caption">
               <span class="badge rounded-pill text-bg-warning">Rabat do 50%</span>
               <h2 class="display-1 fw-bolder fs-1 text-capitalize">Nowa kolekcja</h2>
               <p class="fs-3">Wiosna/Lato 2025</p>
               <p class="fs-5">Poznaj najnowsze trendy i odśwież swoją garderobę na nadchodzący sezon</p>
               <button
-                class="btn btn-primary rounded-4 fw-bold"
+                class="btn btn-dark custom-btn rounded-4 fw-bold px-3 py-2"
                 data-bs-toggle="modal"
                 data-bs-target="#"
               >
@@ -75,12 +74,13 @@
           </div>
           <div class="carousel-item c-item">
             <img src="./src/assets/hero-1.jpg" class="d-block w-100 c-img" alt="...">
-            <div class="carousel-caption">
-              <!-- <span class="badge rounded-pill text-bg-warning">Sprawdź promocje</span> -->
+            <div class="carousel-caption custom-caption">
+              <span class="badge rounded-pill text-bg-danger">Sprawdź promocje</span>
               <h2 class="display-1 fw-bolder fs-1 text-capitalize">Elektronika</h2>
+              <p class="fs-3">laptopy, komputery, akcesoria</p>
               <p class="fs-5">Sprawdź najnowsze laptopy MacBook z procesorami M1.</p>
               <button
-                class="btn btn-primary fw-bold rounded-4"
+                class="btn btn-dark custom-btn fw-bold rounded-4"
                 data-bs-toggle="modal"
                 data-bs-target="#"
               >
@@ -90,13 +90,13 @@
           </div>
           <div class="carousel-item c-item">
             <img src="./src/assets/hero-3.jpg" class="d-block w-100 c-img" alt="...">
-            <div class="carousel-caption">
+            <div class="carousel-caption custom-caption">
               <!-- <span class="badge rounded-pill text-bg-warning">Rabat do 50%</span> -->
               <h2 class="display-1 fw-bolder fs-1 ">Darmowa dostawa</h2>
               <p class="fs-5">Złóż zamówienie za minimum 200zł i nie płać za przesyłkę!</p>
-              <p></p>
+              <!-- <p></p> -->
               <button
-                class="btn btn-primary d-flex fw-bold rounded-4 "
+                class="btn btn-dark custom-btn fw-bold rounded-4 "
                 data-bs-toggle="modal"
                 data-bs-target="#"
               >
@@ -108,7 +108,207 @@
       </div>
     </section>
 
+    <!-- Produkty -->
+    <section class="container my-5">
+      <h2 class="mb-3 fs-3">Polecane Produkty</h2>
+      <div class="row">
 
+        <div class="col-6 col-md-4 col-lg-3 mb-4">
+          <div class="card product-card">
+              <img src="https://placehold.co/600x400" class="card-img-top" alt="Produkt">
+              <div class="card-body d-flex flex-column">
+                <h5 class="fw-bolder text-start">Buty Nike Sportswear</h5>
+                <p class="fs-5 text-start">599,99zł</p>
+                <button class="btn btn-dark align-self-end">Do koszyka</button>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3 mb-4">
+          <div class="card product-card">
+              <img src="https://placehold.co/600x400" class="card-img-top" alt="Produkt">
+              <div class="card-body d-flex flex-column">
+                <h5 class="fw-bolder text-start">Buty Nike Sportswear</h5>
+                <p class="fs-5 text-start">599,99zł</p>
+                <button class="btn btn-dark align-self-end">Do koszyka</button>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3 mb-4">
+          <div class="card product-card">
+              <img src="https://placehold.co/600x400" class="card-img-top" alt="Produkt">
+              <div class="card-body d-flex flex-column">
+                <h5 class="fw-bolder text-start">Buty Nike Sportswear</h5>
+                <p class="fs-5 text-start">599,99zł</p>
+                <button class="btn btn-dark align-self-end">Do koszyka</button>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3 mb-4">
+          <div class="card product-card">
+              <img src="https://placehold.co/600x400" class="card-img-top" alt="Produkt">
+              <div class="card-body d-flex flex-column">
+                <h5 class="fw-bolder text-start">Buty Nike Sportswear</h5>
+                <p class="fs-5 text-start">599,99zł</p>
+                <button class="btn btn-dark align-self-end">Do koszyka</button>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3 mb-4">
+          <div class="card product-card">
+              <img src="https://placehold.co/600x400" class="card-img-top" alt="Produkt">
+              <div class="card-body d-flex flex-column">
+                <h5 class="fw-bolder text-start">Buty Nike Sportswear</h5>
+                <p class="fs-5 text-start">599,99zł</p>
+                <button class="btn btn-dark align-self-end">Do koszyka</button>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3 mb-4">
+          <div class="card product-card">
+              <img src="https://placehold.co/600x400" class="card-img-top" alt="Produkt">
+              <div class="card-body d-flex flex-column">
+                <h5 class="fw-bolder text-start">Buty Nike Sportswear</h5>
+                <p class="fs-5 text-start">599,99zł</p>
+                <button class="btn btn-dark align-self-end">Do koszyka</button>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3 mb-4">
+          <div class="card product-card">
+              <img src="https://placehold.co/600x400" class="card-img-top" alt="Produkt">
+              <div class="card-body d-flex flex-column">
+                <h5 class="fw-bolder text-start">Buty Nike Sportswear</h5>
+                <p class="fs-5 text-start">599,99zł</p>
+                <button class="btn btn-dark align-self-end">Do koszyka</button>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3 mb-4">
+          <div class="card product-card">
+              <img src="https://placehold.co/600x400" class="card-img-top" alt="Produkt">
+              <div class="card-body d-flex flex-column">
+                <h5 class="fw-bolder text-start">Buty Nike Sportswear</h5>
+                <p class="fs-5 text-start">599,99zł</p>
+                <button class="btn btn-dark align-self-end">Do koszyka</button>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3 mb-4">
+          <div class="card product-card">
+              <img src="https://placehold.co/600x400" class="card-img-top" alt="Produkt">
+              <div class="card-body d-flex flex-column">
+                <h5 class="fw-bolder text-start">Buty Nike Sportswear</h5>
+                <p class="fs-5 text-start">599,99zł</p>
+                <button class="btn btn-dark align-self-end">Do koszyka</button>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3 mb-4">
+          <div class="card product-card">
+              <img src="https://placehold.co/600x400" class="card-img-top" alt="Produkt">
+              <div class="card-body d-flex flex-column">
+                <h5 class="fw-bolder text-start">Buty Nike Sportswear</h5>
+                <p class="fs-5 text-start">599,99zł</p>
+                <button class="btn btn-dark align-self-end">Do koszyka</button>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3 mb-4">
+          <div class="card product-card">
+              <img src="https://placehold.co/600x400" class="card-img-top" alt="Produkt">
+              <div class="card-body d-flex flex-column">
+                <h5 class="fw-bolder text-start">Buty Nike Sportswear</h5>
+                <p class="fs-5 text-start">599,99zł</p>
+                <button class="btn btn-dark align-self-end">Do koszyka</button>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3 mb-4">
+          <div class="card product-card">
+              <img src="https://placehold.co/600x400" class="card-img-top" alt="Produkt">
+              <div class="card-body d-flex flex-column">
+                <h5 class="fw-bolder text-start">Buty Nike Sportswear</h5>
+                <p class="fs-5 text-start">599,99zł</p>
+                <button class="btn btn-dark align-self-end">Do koszyka</button>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- self advert -->  
+    <section class="container my-5">
+      <div class="row">
+        <div class="col-12 col-md-4 px-md-4 my-3 text-center">
+          <i class="bi bi-gift-fill fs-2 text-primary"></i>
+          <h4 class="fs-4 fw-bold">Najlepsze Oferty I Ceny</h4>
+          <p class="fs-6 text-justify">Tańsze produkty niż w innych sklepach internetowych i stacjonarnych! Zdobądź najlepsze oferty i rabaty.</p>
+        </div>
+
+        <div class="col-12 col-md-4 px-md-4 my-3 text-center">
+          <i class="bi bi-box fs-2 text-primary"></i>
+          <h4 class="fs-4 fw-bold">Szeroki Asortyment</h4>
+          <p class="fs-6">Wybieraj spośród ponad 3000 produktów: ubrania, elektronika, jedzenie, wypieki, etc.</p>
+        </div>
+
+        <div class="col-12 col-md-4 px-md-4 my-3 text-center">
+          <i class="bi bi-arrow-clockwise fs-2 text-primary"></i>
+          <h4 class="fs-4 fw-bold">Łatwe Zwroty</h4>
+          <p class="fs-6">Nie jesteś zadowolony z produktu? Zwróć produkt i otrzymaj zwrot środków w ciągu kilku godzin.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-dark text-light py-4">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-4">
+                  <h5 class="fw-bold">Shopply</h5>
+                  <p class="text-light-emphasis">Twój ulubiony sklep online. Najlepsze produkty w świetnych cenach.</p>
+              </div>
+  
+
+              <div class="col-md-4">
+                  <h5 class="fw-bold">Szybkie linki</h5>
+                  <ul class="list-unstyled">
+                      <li><a href="#" class="text-light text-decoration-none">Home</a></li>
+                      <li><a href="#" class="text-light text-decoration-none">Sklep</a></li>
+                      <li><a href="#" class="text-light text-decoration-none">Kontakt</a></li>
+                      <li><a href="#" class="text-light text-decoration-none">Regulamin</a></li>
+                  </ul>
+              </div>
+  
+
+              <div class="col-md-4">
+                  <h5 class="fw-bold">Śledź nas</h5>
+                  <a href="#" class="text-light me-3 fs-4"><i class="bi bi-facebook"></i></a>
+                  <a href="#" class="text-light me-3 fs-4"><i class="bi bi-twitter"></i></a>
+                  <a href="#" class="text-light fs-4"><i class="bi bi-instagram"></i></a>
+              </div>
+            </div>
+
+          <hr class="border-secondary my-3">
+  
+
+          <div class="text-center">
+              <p class="mb-0">&copy; 2024 Shopply. Wszelkie prawa zastrzeżone.</p>
+          </div>
+      </div>
+  </footer>
+
+
+    
 
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
