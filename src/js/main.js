@@ -1,3 +1,4 @@
+import { updateCartCount } from "./cartUtils.js";
 const API_URL = "https://fakestoreapi.com/products";
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -22,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="card-body d-flex flex-column">
                 <h5 class="fw-bolder text-start">${product.title}</h5>
                 <p class="fs-5 text-start">${product.price} zł</p>
-                <button class="btn btn-dark align-self-end mt-auto add-to-cart"
+                <button class="add-to-cart btn btn-dark align-self-end mt-auto"
                   data-id="${product.id}"
                   data-category="${product.category}"
                   data-title="${product.title}"
@@ -69,14 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       });
 
-      function updateCartCount() {
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        let totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-        const cartBadge = document.getElementById('cart-count');
-        if (cartBadge) {
-          cartBadge.textContent = totalCount;
-        }
-      }
       updateCartCount();
     })
     .catch(err => {

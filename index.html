@@ -11,133 +11,136 @@
 
     <title>Shopply | Homepage</title>
   </head>
-  <body>
-<!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" id="navbar">
-        <div class="container">
-          <a class="navbar-brand fw-bold" href="./index.html">Shopply</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+  <body class="d-flex flex-column min-vh-100">
+
+<div class="flex-grow-1">
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" id="navbar">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="./index.html">Shopply</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Categories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">All Products</a>
+          </li>
+        </ul>
+        <div class="d-flex my-2 mx-0 my-lg-0 mx-lg-1">
+          <a class="btn btn-outline-light" href="./cart.html">
+            <i class="bi-bag me-1"></i>
+            Cart 
+            <span id="cart-count" class="badge bg-dark text-white ms-1 rounded-pill"></span>
+          </a>
+        </div>
+        <div class="d-flex my-2 mx-0 my-lg-0 mx-lg-1" >
+          <a class="btn btn-outline-light">
+            <i class="bi-person"></i>
+            Account
+          </a>
+        </div>
+      </div>
+  </div>
+  </nav>
+
+  <!-- Hero - Slider -->
+  <section class="container-fluid container-lg" style="padding: 0">
+  <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active c-item">
+        <img src="./src/assets/hero-2.jpg" class="d-block w-100 c-img" alt="...">
+        <div class="carousel-caption custom-caption">
+          <span class="badge rounded-pill text-bg-warning">Rabat do 50%</span>
+          <h2 class="display-1 fw-bolder fs-1 text-capitalize">Nowa kolekcja</h2>
+          <p class="fs-3">Wiosna/Lato 2025</p>
+          <p class="fs-5">Poznaj najnowsze trendy i odśwież swoją garderobę na nadchodzący sezon</p>
+          <button
+            class="btn btn-dark custom-btn rounded-4 fw-bold px-3 py-2"
+            data-bs-toggle="modal"
+            data-bs-target="#"
+          >
+            ZOBACZ KOLEKCJĘ 
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Categories</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">All Products</a>
-              </li>
-            </ul>
-            <div class="d-flex my-2 mx-0 my-lg-0 mx-lg-1">
-              <a class="btn btn-outline-light" href="./cart.html">
-                <i class="bi-bag me-1"></i>
-                Cart 
-                <span id="cart-count" class="badge bg-dark text-white ms-1 rounded-pill"></span>
-              </a>
-            </div>
-            <div class="d-flex my-2 mx-0 my-lg-0 mx-lg-1" >
-              <a class="btn btn-outline-light">
-                <i class="bi-person"></i>
-                Account
-              </a>
-            </div>
-          </div>
-      </div>
-    </nav>
-
-    <!-- Hero - Slider -->
-    <section class="container-fluid container-lg" style="padding: 0">
-      <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active c-item">
-            <img src="./src/assets/hero-2.jpg" class="d-block w-100 c-img" alt="...">
-            <div class="carousel-caption custom-caption">
-              <span class="badge rounded-pill text-bg-warning">Rabat do 50%</span>
-              <h2 class="display-1 fw-bolder fs-1 text-capitalize">Nowa kolekcja</h2>
-              <p class="fs-3">Wiosna/Lato 2025</p>
-              <p class="fs-5">Poznaj najnowsze trendy i odśwież swoją garderobę na nadchodzący sezon</p>
-              <button
-                class="btn btn-dark custom-btn rounded-4 fw-bold px-3 py-2"
-                data-bs-toggle="modal"
-                data-bs-target="#"
-              >
-                ZOBACZ KOLEKCJĘ 
-              </button>
-            </div>
-          </div>
-          <div class="carousel-item c-item">
-            <img src="./src/assets/hero-1.jpg" class="d-block w-100 c-img" alt="...">
-            <div class="carousel-caption custom-caption">
-              <span class="badge rounded-pill text-bg-danger">Sprawdź promocje</span>
-              <h2 class="display-1 fw-bolder fs-1 text-capitalize">Elektronika</h2>
-              <p class="fs-3">laptopy, komputery, akcesoria</p>
-              <p class="fs-5">Sprawdź najnowsze laptopy MacBook z procesorami M1.</p>
-              <button
-                class="btn btn-dark custom-btn fw-bold rounded-4"
-                data-bs-toggle="modal"
-                data-bs-target="#"
-              >
-                KUP TERAZ
-              </button>
-            </div>
-          </div>
-          <div class="carousel-item c-item">
-            <img src="./src/assets/hero-3.jpg" class="d-block w-100 c-img" alt="...">
-            <div class="carousel-caption custom-caption">
-              <!-- <span class="badge rounded-pill text-bg-warning">Rabat do 50%</span> -->
-              <h2 class="display-1 fw-bolder fs-1 ">Darmowa dostawa</h2>
-              <p class="fs-5">Złóż zamówienie za minimum 200zł i nie płać za przesyłkę!</p>
-              <button
-                class="btn btn-dark custom-btn fw-bold rounded-4 "
-                data-bs-toggle="modal"
-                data-bs-target="#"
-              >
-                SPRAWDŹ
-              </button>
-            </div>
-          </div>
         </div>
       </div>
-    </section>
-
-    <!-- Produkty -->
-    <section class="container my-5">
-      <h2 class="mb-3 fs-3">Polecane Produkty</h2>
-      <div class="row" id="homepage-products">
-        <!-- HTML Generowany dynamicznie -->
-      </div>
-    </section>
-
-    <!-- Hero - atuty  -->
-    <section class="container my-5">
-      <div class="row">
-        <div class="col-12 col-md-4 px-md-4 my-3 text-center">
-          <i class="bi bi-gift-fill fs-2 text-primary"></i>
-          <h4 class="fs-4 fw-bold">Najlepsze Oferty I Ceny</h4>
-          <p class="fs-6 text-justify">Tańsze produkty niż w innych sklepach internetowych i stacjonarnych! Zdobądź najlepsze oferty i rabaty.</p>
-        </div>
-
-        <div class="col-12 col-md-4 px-md-4 my-3 text-center">
-          <i class="bi bi-box fs-2 text-primary"></i>
-          <h4 class="fs-4 fw-bold">Szeroki Asortyment</h4>
-          <p class="fs-6">Wybieraj spośród ponad 3000 produktów: ubrania, elektronika, jedzenie, wypieki, etc.</p>
-        </div>
-
-        <div class="col-12 col-md-4 px-md-4 my-3 text-center">
-          <i class="bi bi-arrow-clockwise fs-2 text-primary"></i>
-          <h4 class="fs-4 fw-bold">Łatwe Zwroty</h4>
-          <p class="fs-6">Nie jesteś zadowolony z produktu? Zwróć produkt i otrzymaj zwrot środków w ciągu kilku godzin.</p>
+      <div class="carousel-item c-item">
+        <img src="./src/assets/hero-1.jpg" class="d-block w-100 c-img" alt="...">
+        <div class="carousel-caption custom-caption">
+          <span class="badge rounded-pill text-bg-danger">Sprawdź promocje</span>
+          <h2 class="display-1 fw-bolder fs-1 text-capitalize">Elektronika</h2>
+          <p class="fs-3">laptopy, komputery, akcesoria</p>
+          <p class="fs-5">Sprawdź najnowsze laptopy MacBook z procesorami M1.</p>
+          <button
+            class="btn btn-dark custom-btn fw-bold rounded-4"
+            data-bs-toggle="modal"
+            data-bs-target="#"
+          >
+            KUP TERAZ
+          </button>
         </div>
       </div>
-    </section>
+      <div class="carousel-item c-item">
+        <img src="./src/assets/hero-3.jpg" class="d-block w-100 c-img" alt="...">
+        <div class="carousel-caption custom-caption">
+          <!-- <span class="badge rounded-pill text-bg-warning">Rabat do 50%</span> -->
+          <h2 class="display-1 fw-bolder fs-1 ">Darmowa dostawa</h2>
+          <p class="fs-5">Złóż zamówienie za minimum 200zł i nie płać za przesyłkę!</p>
+          <button
+            class="btn btn-dark custom-btn fw-bold rounded-4 "
+            data-bs-toggle="modal"
+            data-bs-target="#"
+          >
+            SPRAWDŹ
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <!-- Produkty -->
+  <section class="container my-5">
+  <h2 class="mb-3 fs-3">Polecane Produkty</h2>
+  <div class="row" id="homepage-products">
+    <!-- HTML Generowany dynamicznie -->
+  </div>
+  </section>
+
+  <!-- Hero - atuty  -->
+  <section class="container my-5">
+  <div class="row">
+    <div class="col-12 col-md-4 px-md-4 my-3 text-center">
+      <i class="bi bi-gift-fill fs-2 text-primary"></i>
+      <h4 class="fs-4 fw-bold">Najlepsze Oferty I Ceny</h4>
+      <p class="fs-6 text-justify">Tańsze produkty niż w innych sklepach internetowych i stacjonarnych! Zdobądź najlepsze oferty i rabaty.</p>
+    </div>
+
+    <div class="col-12 col-md-4 px-md-4 my-3 text-center">
+      <i class="bi bi-box fs-2 text-primary"></i>
+      <h4 class="fs-4 fw-bold">Szeroki Asortyment</h4>
+      <p class="fs-6">Wybieraj spośród ponad 3000 produktów: ubrania, elektronika, jedzenie, wypieki, etc.</p>
+    </div>
+
+    <div class="col-12 col-md-4 px-md-4 my-3 text-center">
+      <i class="bi bi-arrow-clockwise fs-2 text-primary"></i>
+      <h4 class="fs-4 fw-bold">Łatwe Zwroty</h4>
+      <p class="fs-6">Nie jesteś zadowolony z produktu? Zwróć produkt i otrzymaj zwrot środków w ciągu kilku godzin.</p>
+    </div>
+  </div>
+  </section>
+</div>
 
     <!-- Footer -->
     <footer class="bg-dark text-light py-4">
