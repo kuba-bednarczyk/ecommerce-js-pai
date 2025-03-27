@@ -1,4 +1,4 @@
-import { updateCartCount } from "./cartUtils.js";
+import { updateCartCount } from "./cart.js";
 const API_URL = "https://fakestoreapi.com/products";
 
 document.addEventListener('DOMContentLoaded', () => {

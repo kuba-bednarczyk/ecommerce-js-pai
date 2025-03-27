@@ -1,11 +1,28 @@
-import { updateCartCount } from "./cartUtils.js";
+export const updateCartCount = () => {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  let totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const cartBadge = document.getElementById('cart-count');
+  if (cartBadge) {
+    cartBadge.textContent = totalCount;
+    if (totalCount > 0) {
+      cartBadge.classList.remove('bg-dark');
+      cartBadge.classList.add('bg-danger');
+    } else {
+      cartBadge.classList.remove('bg-danger');
+      cartBadge.classList.add('bg-dark');
+    }
+  }
+}
 
 const getCart = () => JSON.parse(localStorage.getItem('cart')) || [];
 
 const calculateTotalPrice = () => {
+  const totalPriceElem = document.getElementById('total-price');
+  if (!totalPriceElem) return;
+  
   const cart = getCart();
   const total = cart.reduce((sum, item) => sum + item.price*item.quantity, 0);
-  document.getElementById('total-price').textContent = `${total.toFixed(2)} zł`;
+  document.getElementById('total-price').textContent = `${total.toFixed(2)} zł` || `0.00 zł`;
 }
 
 const updateItemQuantity = (id, change) => {
