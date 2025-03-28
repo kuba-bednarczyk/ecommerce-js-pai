@@ -66,11 +66,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
           localStorage.setItem('cart', JSON.stringify(cart));
 
-          updateCartCount();
+          updateCartCount('cart-count');
         });
       });
 
-      updateCartCount();
+      updateCartCount('cart-count');
     })
     .catch(err => {
       console.error("Błąd: ", err);

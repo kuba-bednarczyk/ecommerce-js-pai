@@ -1,7 +1,8 @@
-export const updateCartCount = () => {
+// utility functions and cart operations
+export const updateCartCount = (elemId) => {
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
   let totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-  const cartBadge = document.getElementById('cart-count');
+  const cartBadge = document.getElementById(`${elemId}`);
   if (cartBadge) {
     cartBadge.textContent = totalCount;
     if (totalCount > 0) {
@@ -13,9 +14,7 @@ export const updateCartCount = () => {
     }
   }
 }
-
 const getCart = () => JSON.parse(localStorage.getItem('cart')) || [];
-
 const calculateTotalPrice = () => {
   const totalPriceElem = document.getElementById('total-price');
   if (!totalPriceElem) return;
@@ -42,8 +41,38 @@ const updateItemQuantity = (id, change) => {
 
   renderCart();
   calculateTotalPrice();
-} 
+}
 
+// Order operations
+const createOrderObject = () => {
+  let cart = getCart();
+
+  if(!cart.length) {
+    alert("Twój koszyk jest pusty!");
+    return;
+  }
+
+  let totalProductsPrice = parseFloat(cart.reduce(
+    (sum, item) => sum + item.price * item.quantity
+  , 0).toFixed(2));
+
+  let shippingCost = 9.99;
+  let totalPrice = totalProductsPrice+shippingCost;
+
+  let order = {
+    products: cart,
+    shippingCost: shippingCost,
+    totalProductsPrice: totalProductsPrice,
+    totalPrice: totalPrice,
+    shippingData: {}, //imie, nazwisko, email, telefon, ulica i nr domu, miejscowosc, kod pocztowy
+    paymentMethod: 'credit card' //blik, on delivery
+  }
+
+  localStorage.setItem('order', JSON.stringify(order));
+  window.location.href = './checkout.html';
+}
+
+// Event handlers
 const attachCartEventListeners = () => {
   const removeButtons = document.querySelectorAll('.remove-item');
   const increaseButtons = document.querySelectorAll('.increase-btn');
@@ -80,6 +109,7 @@ const attachCartEventListeners = () => {
   })
 }
 
+// Rendering cart
 const renderCart = () => {
   const cartItemsContainer = document.querySelector('.cart-items');
   let cart = getCart();
@@ -121,12 +151,22 @@ const renderCart = () => {
   }
 
   attachCartEventListeners();
-  updateCartCount();
+  updateCartCount('cart-count');
 }
-
 const initializeCart = () => {
   renderCart();
   calculateTotalPrice();
 }
+document.addEventListener('DOMContentLoaded', () => { 
+  initializeCart(); 
+  
+  const proceedBtn = document.getElementById('to-checkout');
+  if (proceedBtn) {
+    proceedBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      createOrderObject();
+    })
+  }
 
-document.addEventListener('DOMContentLoaded', () => { initializeCart(); });
+});
+
