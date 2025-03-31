@@ -59,12 +59,17 @@ const updatePaymentMethodDisplay = (creditDiv, blikDiv) => {
   }
 }
 
+// const validateForm
+
+
 document.addEventListener('DOMContentLoaded', () => {
   const order = localStorage.getItem('order');
+  // przejscie do index.html, jesli nie ma obiektu order w localstorage
   if (!order) {
     window.location.href = './index.html';
   }
 
+  // zmiana formularza zaleznie od wybranego buttona radio
   const paymentRadios = document.querySelectorAll('input[name="paymentMethod"]');
   const creditDiv = document.getElementById('payment-cc');
   const blikDiv = document.getElementById('payment-blik');
@@ -77,4 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
   updateCartCount('cart-count');
   updateCartCount('form-cart-count');
   renderCartItems();
+
+  // walidacja formularza
+
 });
