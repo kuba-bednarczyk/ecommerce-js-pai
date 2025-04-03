@@ -92,13 +92,13 @@
 
               <div class="col-sm-6">
                 <label for="firstName" class="form-label">Imię</label>
-                <input type="text" class="form-control" id="firstName" placeholder="John" />
+                <input type="text" class="form-control" id="firstName" placeholder="John" required/>
                 <div class="invalid-feedback">Wprowadź poprawne imię (np. Nikodem)</div>
               </div>
 
               <div class="col-sm-6">
                 <label for="lastName" class="form-label">Nazwisko</label>
-                <input type="text" class="form-control" id="lastName" placeholder="Smith"/>
+                <input type="text" class="form-control" id="lastName" placeholder="Smith" required/>
                 <div class="invalid-feedback">Wprowadź poprawne Nazwisko (np. Budziński)</div>
               </div>
 
@@ -121,6 +121,9 @@
                   id="phone"
                   placeholder="111 222 333"
                 />
+                <div class="invalid-feedback">
+                  Wpisz poprawny numer telefonu (np. 301890193)
+                </div>
               </div>
 
               <div class="col-12">
@@ -132,6 +135,9 @@
                   placeholder="Wesoła 34"
                   required
                 />
+                <div class="invalid-feedback">
+                  Wpisz poprawną ulicę i numer domu (np. Wesoła 12/3)
+                </div>
               </div>
 
               <div class="col-md-8">
@@ -141,12 +147,19 @@
                   class="form-control"
                   id="city"
                   placeholder="Warszawa"
+                  required
                 />
+                <div class="invalid-feedback">
+                  Wpisz poprawną nazwę miejscowości (Duża litera pierwsza np. Warszawa)
+                </div>
               </div>
 
               <div class="col-md-4">
                 <label for="postal-code" class="form-label">Kod pocztowy</label>
                 <input type="text" class="form-control" id="postal-code" placeholder="20-001" />
+                <div class="invalid-feedback">
+                  Wpisz poprawny kod pocztowy (np. 101-001)
+                </div>
               </div>
               <hr class="my-4" />
 
@@ -158,7 +171,7 @@
                     id="credit-card"
                     name="paymentMethod"
                     type="radio"
-                    class="form-check-input"
+                    class="checkout-form-check form-check-input"
                     checked
                     required
                   />
@@ -169,7 +182,7 @@
                     id="blik"
                     name="paymentMethod"
                     type="radio"
-                    class="form-check-input"
+                    class="checkout-form-check form-check-input"
                     required
                   />
                   <label class="form-check-label" for="blik">Blik</label>
@@ -179,7 +192,7 @@
                     id="ondelivery"
                     name="paymentMethod"
                     type="radio"
-                    class="form-check-input"
+                    class="checkout-form-check form-check-input"
                     required
                   />
                   <label class="form-check-label" for="ondelivery">Za Pobraniem</label>
@@ -194,9 +207,11 @@
                     type="text"
                     class="form-control"
                     placeholder="123123"
+                    id="blik-code"
                     required
                   />
                   <small class="text-body-secondary">Potwierdź w aplikacji</small>
+                  <div class="invalid-feedback">Niepoprawny kod blik</div>
                 </div>
               </div>
 
@@ -214,7 +229,7 @@
                     required
                   />
                   <!-- <small class="text-body-secondary">Full name displayed on card</small> -->
-                  <div class="invalid-feedback">Name on card is required</div>
+                  <div class="invalid-feedback">Wpisz poprawnie imię i nazwisko na karcie kredytowej</div>
                 </div>
 
                 <div class="col-md-6">
@@ -222,11 +237,11 @@
                   <input
                     type="text"
                     class="form-control"
-                    id="cc-bumber"
+                    id="cc-number"
                     placeholder="1111 2222 3333 4444"
                     required
                   />
-                  <div class="invalid-feedback">Name on card is required</div>
+                  <div class="invalid-feedback">Wpisz poprawny numer karty</div>
                 </div>
 
                 <div class="col-md-3">
@@ -238,7 +253,7 @@
                     placeholder="MM/RR"
                     required
                   />
-                  <div class="invalid-feedback">Expiration date required</div>
+                  <div class="invalid-feedback">Wpisz poprawnie date wygaśnięcia w formacie MM/RR</div>
                 </div>
 
                 <div class="col-md-3">
@@ -250,12 +265,25 @@
                     placeholder="123"
                     required
                   />
-                  <div class="invalid-feedback">Security code required</div>
+                  <div class="invalid-feedback">Wpisz poprawny kod CVC (np. 101)</div>
+                </div>
+              </div>
+
+              <!-- <hr class="my-4" /> -->
+
+              <div class="col-12 py-4">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="accept-terms" required>
+                  <label class="form-check-label" for="accept-terms">
+                    Akceptuję regulamin i warunki sklepu
+                  </label>
+                  <div class="invalid-feedback">
+                    Musisz zatwierdzić regulamin i warunki skepu.
+                  </div>
                 </div>
               </div>
 
               <hr class="my-4" />
-
               <button type="submit" id="summary-btn" class="w-100 btn btn-dark btn-lg">
                 Kontynuuj
               </button>

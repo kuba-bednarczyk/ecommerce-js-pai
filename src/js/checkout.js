@@ -4,137 +4,102 @@ export const getOrder = () => {
 };
 
 const handleFormValidation = () => {
-  const form = document.getElementById('checkout-form');
-  form.classList.remove('was-validated');
-
-  let isValid = true;
-
-  const nameRegex = /^[A-Z][a-z]+$/;
-  const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-  const phoneRegex = /^\d{3}\s?\d{3}\s?\d{3}$/;
-  const addressRegex = /^[A-Z][a-z]+ \d+(?:[a-z])?(?:\/\d+(?:[a-z])?)?$/;
-  const cityRegex = /^[A-Z][a-z]+$/;
-  const postalRegex = /^\d{2}-\d{3}$/;
-
-  const ccNameRegex = /^[A-Z]+\s[A-Z]+$/;
-  const ccNumberRegex = /^\d{4}\s?\d{4}\s?\d{4}\s?\d{4}$/;
-  const ccCVCRegex = /^\d{3}$/;
-  const ccExpirationRegex = /^(0[1-9]|1[0-2]\/\d{2}$)/;
-
-  const blikRegex = /^\d{6}$/;
-
-  // delivery data
-  const firstName = document.getElementById('firstName');
-  const lastName = document.getElementById('lastName');
-  const email = document.getElementById('email');
-  const phone = document.getElementById('phone');
-  const address = document.getElementById('address');
-  const city = document.getElementById('city');
-  const postalCode = document.getElementById('postal-code');
-
-  // credit card data
-  const ccName = document.getElementById('cc-name');
-  const ccNumber = document.getElementById('cc-number');
-  const ccCVC = document.getElementById('cc-cvc');
-  const ccExpiration = document.getElementById('cc-expiration');
-
-  //blik code data
-  const blikCode = document.getElementById('blik-code');
-
-  if (!nameRegex.test(firstName.value.trim())) {
-    firstName.setCustomValidity('Invalid');
-    isValid = false;
-  } else {
-    firstName.setCustomValidity('');
-  }
-
-  if (!nameRegex.test(lastName.value.trim())) {
-    lastName.setCustomValidity('Invalid');
-    isValid = false;
-  } else {
-    lastName.setCustomValidity('');
-  }
-
-  if (!emailRegex.test(email.value.trim())) {
-    email.setCustomValidity('Invalid');
-    isValid = false;
-  } else {
-    email.setCustomValidity('');
-  }
-
-  if (!phoneRegex.test(phone.value.trim())) {
-    phone.setCustomValidity('Invalid');
-    isValid = false;
-  } else {
-    phone.setCustomValidity('');
-  }
-
-  if (!phoneRegex.test(phone.value.trim())) {
-    phone.setCustomValidity('Invalid');
-    isValid = false;
-  } else {
-    phone.setCustomValidity('');
-  }
-
-  if (!addressRegex.test(address.value.trim())) {
-    address.setCustomValidity('Invalid');
-    isValid = false;
-  } else {
-    phone.setCustomValidity('');
-  }
-
-  if (!cityRegex.test(city.value.trim())) {
-    city.setCustomValidity('Invalid');
-    isValid = false;
-  } else {
-    city.setCustomValidity('');
-  }
-
-  if (!postalRegex.test(postalCode.value.trim())) {
-    postalCode.setCustomValidity('Invalid');
-    isValid = false;
-  } else {
-    postalCode.setCustomValidity('');
-  }
-
-  if (document.getElementById('credit-card').checked) {
-    if (!ccNameRegex.test(ccName.value.trim())) {
-      ccName.setCustomValidity('Invalid');
-      isValid = false;
-    } else {
-      ccName.setCustomValidity('');
+  const deliveryDataValidations = [
+    {
+      id: 'email',
+      regex: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/,
+      errorMessage: 'Wpisz poprawny adres email.'
+    },
+    {
+      id: 'phone',
+      regex: /^\d{3}\s?\d{3}\s?\d{3}$/,
+      errorMessage: 'Wpisz poprawny numer telefonu.'
+    },
+    {
+      id: 'postal-code',
+      regex: /^\d{2}-\d{3}$/,
+      errorMessage: 'Wpisz poprawny kod pocztowy (np. 20-001).'
     }
-
-    if (!ccNumberRegex.test(ccNumber.value.trim())) {
-      ccNumber.setCustomValidity('Invalid');
-      isValid = false;
-    } else {
-      ccNumber.setCustomValidity('');
+  ];
+  
+  const ccValidations = [
+    {
+      id: 'cc-number',
+      regex: /^\d{4}\s?\d{4}\s?\d{4}\s?\d{4}$/,
+      errorMessage: 'Wpisz poprawny numer karty.'
+    },
+    {
+      id: 'cc-cvc',
+      regex: /^\d{3}$/,
+      errorMessage: 'Wpisz poprawny kod CVC (3 cyfry).'
+    },
+    {
+      id: 'cc-expiration',
+      regex: /^(0[1-9]|1[0-2])\/\d{2}$/,
+      errorMessage: 'Wpisz poprawną datę wygaśnięcia karty w formacie MM/YY.'
     }
+  ];
+  
+  const blikValidations = {
+    id: 'blik-code',
+    regex: /^\d{6}$/,
+    errorMessage: 'Wpisz poprawny 6-cyfrowy kod Blik.'
+  };
 
-    if (!ccCVCRegex.test(ccCVC.value.trim())) {
-      ccCVC.setCustomValidity('Invalid');
-      isValid = false;
-    } else {
-      ccCVC.setCustomValidity('');
-    }
+  let allValid = true;
 
-    if (!ccExpirationRegex.test(ccExpiration.value.trim())) {
-      ccExpiration.setCustomValidity('Invalid');
-      isValid = false;
+  // Walidacja danych dostawy
+  deliveryDataValidations.forEach(item => {
+    const input = document.getElementById(item.id);
+    if (!item.regex.test(input.value.trim())) {
+      input.classList.remove('is-valid');
+      input.classList.add('is-invalid');
+      input.setCustomValidity(item.errorMessage);
+      allValid = false;
     } else {
-      ccExpiration.setCustomValidity('');
+      input.classList.remove('is-invalid');
+      input.classList.add('is-valid');
+      input.setCustomValidity('');
     }
-  } else if(document.getElementById('blik').checked) {
-    if (!blikRegex.test(blikCode.value.trim())) {
-      blikCode.setCustomValidity('Invalid');
-      isValid = false;
-    } else {
-      blikCode.setCustomValidity('');
+  });
+
+  // Pobieramy zaznaczony radio button metod płatności
+  const paymentMethodRadio = document.querySelector('input[name="paymentMethod"]:checked');
+  // Upewnij się, że istnieje zaznaczony radio button
+  if (!paymentMethodRadio) {
+    allValid = false;
+  } else {
+    const paymentMethod = paymentMethodRadio.id;
+    if (paymentMethod === 'credit-card') {
+      ccValidations.forEach(item => {
+        const input = document.getElementById(item.id);
+        if (!item.regex.test(input.value.trim())) {
+          input.classList.remove('is-valid');
+          input.classList.add('is-invalid');
+          input.setCustomValidity(item.errorMessage);
+          allValid = false;
+        } else {
+          input.classList.remove('is-invalid');
+          input.classList.add('is-valid');
+          input.setCustomValidity('');
+        }
+      });
+    } else if (paymentMethod === 'blik') {
+      const input = document.getElementById(blikValidations.id);
+      if (!blikValidations.regex.test(input.value.trim())) {
+        input.classList.remove('is-valid');
+        input.classList.add('is-invalid');
+        input.setCustomValidity(blikValidations.errorMessage);
+        allValid = false;
+      } else {
+        input.classList.remove('is-invalid');
+        input.classList.add('is-valid');
+        input.setCustomValidity('');
+      }
     }
   }
 
-  return isValid;
+  return allValid;
 };
 
 const renderCartItems = () => {
@@ -170,7 +135,6 @@ const renderCartItems = () => {
       <strong>Do zapłaty:</strong>
       <strong id="order-total">${totalPrice} zł</strong>
     </li>
-  
   `;
 
   productsListElement.innerHTML = htmlContent;
@@ -195,15 +159,13 @@ const updatePaymentMethodDisplay = (creditDiv, blikDiv) => {
 
 document.addEventListener('DOMContentLoaded', () => {
   const order = localStorage.getItem('order');
-  // przejscie do index.html, jesli nie ma obiektu order w localstorage
+  // Przejście do index.html, jeśli nie ma obiektu order w localStorage
   if (!order) {
     window.location.href = './index.html';
   }
 
-  // zmiana formularza zaleznie od wybranego buttona radio
-  const paymentRadios = document.querySelectorAll(
-    'input[name="paymentMethod"]'
-  );
+  // Zmiana widoku formularza płatności w zależności od wybranego radio buttona
+  const paymentRadios = document.querySelectorAll('input[name="paymentMethod"]');
   const creditDiv = document.getElementById('payment-cc');
   const blikDiv = document.getElementById('payment-blik');
 
@@ -212,20 +174,24 @@ document.addEventListener('DOMContentLoaded', () => {
       updatePaymentMethodDisplay(creditDiv, blikDiv)
     );
   });
+
   updatePaymentMethodDisplay(creditDiv, blikDiv);
 
   updateCartCount('cart-count');
   updateCartCount('form-cart-count');
   renderCartItems();
 
-  // walidacja formularza
-  const form = document.querySelector('form');
-  form.addEventListener('submit', (e) => {
-    if (!handleFormValidation()) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
+  const form = document.querySelector('#checkout-form');
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    event.stopPropagation();
 
-    form.classList.add('was-validated')
+    const valid = handleFormValidation();
+
+    form.classList.add('was-validated');
+
+    if (valid) {
+      window.location.href = form.action;
+    }
   });
 });

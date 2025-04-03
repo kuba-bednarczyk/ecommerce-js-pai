@@ -58,4 +58,9 @@
   object-fit: cover
 }
 
+/* checkout html radio buttons styles */
+.checkout-form-check.is-valid {
+  border-color: initial;
+  background-color: none;
+}
 
