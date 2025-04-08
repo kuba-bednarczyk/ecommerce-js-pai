@@ -14,7 +14,14 @@ export const updateCartCount = (elemId) => {
     }
   }
 }
-const getCart = () => JSON.parse(localStorage.getItem('cart')) || [];
+const getCart = () => {
+  try {
+    return JSON.parse(localStorage.getItem('cart')) || []
+  } catch (e) {
+    console.warn('Błąd parsowania danych koszyka:', e);
+    return [];
+  }
+}
 const calculateTotalPrice = () => {
   const totalPriceElem = document.getElementById('total-price');
   if (!totalPriceElem) return;
@@ -43,7 +50,6 @@ const updateItemQuantity = (id, change) => {
   calculateTotalPrice();
 }
 
-// Order operations
 const createOrderObject = () => {
   let cart = getCart();
 
