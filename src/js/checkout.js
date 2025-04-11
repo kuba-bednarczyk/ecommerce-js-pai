@@ -242,7 +242,39 @@ document.addEventListener('DOMContentLoaded', () => {
     form.classList.add('was-validated');
 
     if (valid) {
+      const shippingData = {
+        firstName: document.getElementById('firstName').value.trim(),
+        lastName: document.getElementById('lastName').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        street: document.getElementById('street').value.trim(),
+        houseNumber: document.getElementById('house-number').value.trim(),
+        city: document.getElementById('city').value.trim(),
+        postalCode: document.getElementById('postal-code').value.trim(),
+        country: document.getElementById('country').value
+      };
+
+      const paymentRadio = document.querySelector('input[name="paymentMethod"]:checked');
+      // domyślna wartość
+      let paymentMethod = '';
+
+      if(paymentRadio) {
+        if (paymentRadio.id === 'credit-card') {
+          paymentMethod = 'Karta kredytowa';
+        } else if (paymentRadio.id === 'blik') {
+          paymentMethod = 'blik';
+        } else if (paymentRadio.id === 'ondelivery') {
+          paymentMethod = 'Za pobraniem';
+        }
+      }
+
+      const order = getOrder();
+      order.shippingData = shippingData;
+      order.paymentMethod = paymentMethod;
+
+      localStorage.setItem('order', JSON.stringify(order));
       window.location.href = form.action;
     }
   });
+
 });
