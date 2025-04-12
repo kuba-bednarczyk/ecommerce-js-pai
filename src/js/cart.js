@@ -14,6 +14,7 @@ export const updateCartCount = (elemId) => {
     }
   }
 }
+
 const getCart = () => {
   try {
     return JSON.parse(localStorage.getItem('cart')) || []

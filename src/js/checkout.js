@@ -273,6 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
       order.paymentMethod = paymentMethod;
 
       localStorage.setItem('order', JSON.stringify(order));
+      localStorage.removeItem('cart');
       window.location.href = form.action;
     }
   });

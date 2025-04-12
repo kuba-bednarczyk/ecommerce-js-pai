@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     container.innerHTML = `
       <h4>Dane dostawy</h4>
+      <hr class="mb-3">
       <p><strong>Imię i nazwisko:</strong> ${shippingData.firstName} ${shippingData.lastName}</p>
       <p><strong>Email:</strong> ${shippingData.email}</p>
       <p><strong>Telefon:</strong> ${shippingData.phone}</p>
@@ -25,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('payment-info');
     if (!container) return;
     container.innerHTML = `
-      <h4>Metoda płatności</h4>
+      <h5>Metoda płatności:</h5>
       <p>${paymentMethod}</p>
     `;
   };
@@ -35,7 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!container) return;
 
     let html = `
-      <h4>Podsumowanie zamówienia</h4>
+      <h4>Zamówione produkty</h4>
+      <hr class="mb-3">
       <ul class="list-group mb-3">
     `;
 
@@ -72,4 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderShippingInfo();
   renderPaymentInfo();
   renderOrderSummary();
+  document.querySelector('.return-anchor').addEventListener('click', () => {
+    localStorage.clear();
+  })
 });
