@@ -70,3 +70,4 @@ export const showAddToCartPopup = (productTitle) => {
     toastEl.addEventListener('transitionend', () => toastEl.remove());
   }, 2500);
 };
+
