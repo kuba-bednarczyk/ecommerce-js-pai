@@ -40,7 +40,7 @@ const createOrderObject = () => {
 
   let totalProductsPrice = toFixedFloat(cart.reduce((sum, item) => sum + item.price * item.quantity, 0));
 
-  let shippingCost = 9.99;
+  let shippingCost = totalProductsPrice > 200 ? 0 : 9.99;
   let totalPrice = toFixedFloat(totalProductsPrice+shippingCost);
 
   let order = {
@@ -93,7 +93,7 @@ const attachCartEventListeners = () => {
   })
 }
 
-// Rendering cart
+
 const renderCart = () => {
   const cartItemsContainer = document.querySelector('.cart-items');
   let cart = getCart();
@@ -141,6 +141,7 @@ const initializeCart = () => {
   renderCart();
   calculateTotalPrice();
 }
+
 document.addEventListener('DOMContentLoaded', () => { 
   initializeCart(); 
   

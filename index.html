@@ -29,6 +29,15 @@
           <li class="nav-item">
             <a class="nav-link" href="./products.html">Produkty</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./index.html#faqAccordion">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./index.html#footer">Kontakt</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./index.html#about-us">O nas</a>
+          </li>
         </ul>
         <div class="d-flex my-2 mx-0 my-lg-0 mx-lg-1">
           <a class="btn btn-outline-light" href="./cart.html">
@@ -37,12 +46,12 @@
             <span id="cart-count" class="badge bg-dark text-white ms-1 rounded-pill"></span>
           </a>
         </div>
-        <div class="d-flex my-2 mx-0 my-lg-0 mx-lg-1" >
+        <!-- <div class="d-flex my-2 mx-0 my-lg-0 mx-lg-1" >
           <a class="btn btn-outline-light">
             <i class="bi-person"></i>
             Konto
           </a>
-        </div>
+        </div> -->
       </div>
   </div>
   </nav>
@@ -109,15 +118,27 @@
 
   <!-- Produkty -->
   <section class="container my-5">
-  <h2 class="mb-3 fs-3">Polecane Produkty</h2>
-  <div class="row" id="homepage-products">
-    <!-- HTML Generowany dynamicznie -->
-  </div>
+    <h2 class="mb-3 fs-3">Polecane Produkty</h2>
+    <div class="row" id="homepage-products">
+      <!-- HTML Generowany dynamicznie -->
+    </div>
   </section>
 
-  <!-- Hero - atuty  -->
+  <!-- Oferta Dnia Hero -->
+<section class="bg-warning-subtle py-5 w-100">
+  <div class="container text-center">
+    <h1 class="display-4 fw-bold text-dark"> Oferta Dnia</h1>
+    <h2 class="fs-2 text-danger mb-3">Rabat do 60%!</h2>
+    <p class="lead text-secondary">
+      Tylko dziś! Wybierz spośród najlepszych produktów w najniższej cenie. Oferta ważna do północy!
+    </p>
+    <a href="./products.html" class="btn btn-dark btn-lg mt-3">Zobacz Promocje</a>
+  </div>
+</section>
+
+  <!-- Features Section -->
   <section class="container my-5">
-  <div class="row">
+  <div id="about-us" class="row">
     <div class="col-12 col-md-4 px-md-4 my-3 text-center">
       <i class="bi bi-gift-fill fs-2 text-primary"></i>
       <h4 class="fs-4 fw-bold">Najlepsze Oferty I Ceny</h4>
@@ -139,40 +160,85 @@
   </section>
 </div>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-light py-4">
-      <div class="container">
-          <div class="row">
-              <div class="col-md-4">
-                  <h5 class="fw-bold">Shopply</h5>
-                  <p class="text-light-emphasis">Twój ulubiony sklep online. Najlepsze produkty w świetnych cenach.</p>
-              </div>
-  
-
-              <div class="col-md-4">
-                  <h5 class="fw-bold">Szybkie linki</h5>
-                  <ul class="list-unstyled">
-                      <li><a href="#" class="text-light text-decoration-none">Home</a></li>
-                      <li><a href="#" class="text-light text-decoration-none">Sklep</a></li>
-                      <li><a href="#" class="text-light text-decoration-none">Kontakt</a></li>
-                      <li><a href="#" class="text-light text-decoration-none">Regulamin</a></li>
-                  </ul>
-              </div>
-
-              <div class="col-md-4">
-                  <h5 class="fw-bold">Śledź nas</h5>
-                  <a href="#" class="text-light me-3 fs-4"><i class="bi bi-facebook"></i></a>
-                  <a href="#" class="text-light me-3 fs-4"><i class="bi bi-twitter"></i></a>
-                  <a href="#" class="text-light fs-4"><i class="bi bi-instagram"></i></a>
-              </div>
-            </div>
-
-          <hr class="border-secondary my-3">
-          <div class="text-center">
-              <p class="mb-0">&copy; 2025 Shopply. Wszelkie prawa zastrzeżone.</p>
-          </div>
+<!-- FAQ -->
+<section class="container my-5">
+  <h2 class="fs-3 fw-bold text-center mb-4">Najczęściej zadawane pytania (FAQ)</h2>
+  <div class="accordion" id="faqAccordion">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faqOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Jak mogę złożyć zamówienie?
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="faqOne" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Dodaj produkty do koszyka, przejdź do strony koszyka, a następnie kliknij „Przejdź do dostawy”.
+        </div>
       </div>
-    </footer>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faqTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Jakie są dostępne metody płatności?
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="faqTwo" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Akceptujemy płatności kartą, BLIK oraz za pobraniem.
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faqThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Czy przesyłka jest darmowa?
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="faqThree" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Złóż zamówienie za minimum 200zł i nie płać za przesyłkę! Przesyłka będzie całkowicie darmowa jeśli dodasz do koszyka produkty za minimum 200 zł.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+<footer id="footer" class="bg-dark text-light py-4">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-4">
+              <h5 class="fw-bold">Shopply</h5>
+              <p class="text-light-emphasis">Twój ulubiony sklep online. Najlepsze produkty w świetnych cenach.</p>
+          </div>
+
+
+          <div class="col-md-4">
+              <h5 class="fw-bold">Szybkie linki</h5>
+              <ul class="list-unstyled">
+                  <li><a href="#" class="text-light text-decoration-none">Home</a></li>
+                  <li><a href="#" class="text-light text-decoration-none">Sklep</a></li>
+                  <li><a href="#" class="text-light text-decoration-none">Kontakt</a></li>
+                  <li><a href="#" class="text-light text-decoration-none">Regulamin</a></li>
+              </ul>
+          </div>
+
+          <div class="col-md-4">
+              <h5 class="fw-bold">Śledź nas</h5>
+              <a href="#" class="text-light me-3 fs-4"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="text-light me-3 fs-4"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="text-light fs-4"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+
+      <hr class="border-secondary my-3">
+      <div class="text-center">
+          <p class="mb-0">&copy; 2025 Shopply. Wszelkie prawa zastrzeżone.</p>
+      </div>
+  </div>
+  </footer>
 
 
     <script type="module" src="./src/js/main.js"></script>

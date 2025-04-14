@@ -152,7 +152,7 @@ const handleFormValidation = () => {
 
 const renderCartItems = () => {
   const order = getOrder();
-  const { products, totalPrice } = order;
+  const { products, totalPrice, shippingCost } = order;
   const productsListElement = document.getElementById('products-list');
 
   let htmlContent = '';
@@ -173,11 +173,11 @@ const renderCartItems = () => {
   htmlContent += `
     <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
       <div><h6 class="my-0">Koszt dostawy (kurier):</h6></div>
-      <span class="">9,99 zł</span>
+      <span>${shippingCost} zł</span>
     </li>
     <li class="list-group-item d-flex justify-content-between">
       <strong>Do zapłaty:</strong>
-      <strong id="order-total">${totalPrice} zł</strong>
+      <strong id="order-total">${totalPrice.toFixed(2)} zł</strong>
     </li>
   `;
 
