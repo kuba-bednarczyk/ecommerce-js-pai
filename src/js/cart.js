@@ -1,34 +1,13 @@
-// utility functions and cart operations
-export const updateCartCount = (elemId) => {
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  let totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-  const cartBadge = document.getElementById(`${elemId}`);
-  if (cartBadge) {
-    cartBadge.textContent = totalCount;
-    if (totalCount > 0) {
-      cartBadge.classList.remove('bg-dark');
-      cartBadge.classList.add('bg-danger');
-    } else {
-      cartBadge.classList.remove('bg-danger');
-      cartBadge.classList.add('bg-dark');
-    }
-  }
-}
+import { updateCartCount, getCart } from "./utils.js";
 
-const getCart = () => {
-  try {
-    return JSON.parse(localStorage.getItem('cart')) || []
-  } catch (e) {
-    console.warn('Błąd parsowania danych koszyka:', e);
-    return [];
-  }
-}
+const toFixedFloat = (num, digits = 2) => Number(num.toFixed(digits));
+
 const calculateTotalPrice = () => {
   const totalPriceElem = document.getElementById('total-price');
   if (!totalPriceElem) return;
   
   const cart = getCart();
-  const total = cart.reduce((sum, item) => sum + item.price*item.quantity, 0);
+  const total = cart.reduce((sum, item) => toFixedFloat(sum + item.price * item.quantity), 0);
   document.getElementById('total-price').textContent = `${total.toFixed(2)} zł` || `0.00 zł`;
 }
 
@@ -59,12 +38,10 @@ const createOrderObject = () => {
     return;
   }
 
-  let totalProductsPrice = parseFloat(cart.reduce(
-    (sum, item) => sum + item.price * item.quantity
-  , 0).toFixed(2));
+  let totalProductsPrice = toFixedFloat(cart.reduce((sum, item) => sum + item.price * item.quantity, 0));
 
   let shippingCost = 9.99;
-  let totalPrice = totalProductsPrice+shippingCost;
+  let totalPrice = toFixedFloat(totalProductsPrice+shippingCost);
 
   let order = {
     products: cart,

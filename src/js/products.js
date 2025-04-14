@@ -1,6 +1,4 @@
-// /src/js/products.js
-
-import { updateCartCount } from "./cart.js";
+import { showAddToCartPopup, updateCartCount } from "./utils.js";
 
 const API_URL = "https://fakestoreapi.com/products";
 const CATEGORIES = [
@@ -23,8 +21,12 @@ const renderFilters = (container, callback) => {
   html += '</div>';
   container.insertAdjacentHTML('afterbegin', html);
 
-  document.querySelectorAll('.category-filter').forEach(btn => {
+  const filterButtons = document.querySelectorAll('.category-filter');
+  filterButtons.forEach(btn => {
     btn.addEventListener('click', () => {
+      filterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
       const selected = btn.getAttribute('data-category');
       callback(selected);
     });
@@ -79,6 +81,7 @@ const attachCartListeners = () => {
 
       localStorage.setItem('cart', JSON.stringify(cart));
       updateCartCount('cart-count');
+      showAddToCartPopup(title);
     });
   });
 };
@@ -105,6 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
         filterAndRender(products, selectedCategory, productsContainer);
       });
       filterAndRender(products, "all", productsContainer);
+      document.querySelector('.category-filter[data-category="all"]').classList.add('active');
       updateCartCount("cart-count");
     })
     .catch(err => console.error("Błąd: ", err));

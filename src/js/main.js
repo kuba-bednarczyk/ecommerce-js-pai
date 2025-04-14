@@ -1,4 +1,4 @@
-import { updateCartCount } from "./cart.js";
+import { updateCartCount, showAddToCartPopup } from "./utils.js";
 const API_URL = "https://fakestoreapi.com/products";
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -67,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
           localStorage.setItem('cart', JSON.stringify(cart));
 
           updateCartCount('cart-count');
+          showAddToCartPopup(title);
         });
       });
 

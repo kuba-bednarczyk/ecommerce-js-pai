@@ -1,13 +1,4 @@
-import { updateCartCount } from './cart.js';
-
-export const getOrder = () => {
-  try {
-    return JSON.parse(localStorage.getItem('order')) || [];
-  } catch (e) {
-    console.warn('Błąd parsowania danych zamówienia:', e);
-    return [];
-  }
-};
+import { updateCartCount, getOrder } from './utils.js';
 
 const deliveryDataValidations = [
   {
