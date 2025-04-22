@@ -1,3 +1,5 @@
+import {getUser} from './utils.js';
+
 const loginSection = document.querySelector('#login-section');
 const registerSection = document.querySelector('#register-section');
 
