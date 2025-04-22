@@ -7,7 +7,6 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="./src/css/main.css" />
-  <link rel="stylesheet" href="./src/css/cart.css" />
 
   <title>Shopply | Homepage</title>
 </head>
@@ -45,17 +44,18 @@
           </a>
         </div>
         <div class="d-flex my-2 mx-0 my-lg-0 mx-lg-1" >
-          <a class="btn btn-outline-light">
+          <button id="account-btn" class="btn btn-outline-light">
             <i class="bi-person"></i>
             Konto
-          </a>
+          </button>
         </div>
       </div>
   </div>
   </nav>
 
     <!-- Login -->
-     <div class="flex-grow-1">
+    
+    <div id="login-section" class="flex-grow-1">
       <div class="container-fluid py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
           <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -63,21 +63,72 @@
               <div class="card-body p-5 text-center">
                 <h2 class="fw-bold mb-3 text-uppercase">Logowanie</h2>
                 <p class="mb-4">Wprowadź nazwę użytkownika i hasło</p>
-                <form class="form">
+
+                <form id="login-form" class="form">
                   <div class="form-outline mb-4">
-                    <input type="email" placeholder="nazwa użytkownika" class="form-control form-control-lg"> </div>
+                    <input id="username" type="text" placeholder="nazwa użytkownika" class="form-control form-control-lg"> </div>
                   <div class="form-outline mb-4">
-                    <input type="password" placeholder="hasło" class="form-control form-control-lg"> </div>
+                    <input id="password" type="password" placeholder="hasło" class="form-control form-control-lg"> </div>
                   <div class="form-outline mb-4 d-grid gap-2">
                     <button type="submit" class="btn btn-info">Zaloguj </button>
                   </div>
                 </form>
+                <a id="goToRegister" class="text-primary text-decoration-underline" role="button">
+                  Nie masz konta? <strong>Zarejestruj się</strong>
+                </a>
               </div>
             </div>
           </div>
         </div>
       </div>
-     </div>
+    </div>
+
+    <!-- register section -->
+    <div id="register-section" class="flex-grow-1 d-none">
+      <div class="container-fluid py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="card">
+              <div class="card-body p-5 text-center">
+                <h2 class="fw-bold mb-3 text-uppercase">Rejestracja</h2>
+                <p class="mb-4">Wprowadź swoje dane, aby utworzyć konto</p>
+
+                <form id="register-form" class="form">
+                  <div class="form-outline mb-4">
+                    <input id="reg-username" type="text" placeholder="nazwa użytkownika" class="form-control form-control-lg">
+                  </div>
+                  <div class="form-outline mb-4">
+                    <input id="reg-email" type="text" placeholder="adres e-mail" class="form-control form-control-lg">
+                    <div class="invalid-feedback">
+                      Niepoprawny adres email.
+                    </div>
+                  </div>
+                  <div class="form-outline mb-4">
+                    <input id="reg-password" type="password" placeholder="hasło" class="form-control form-control-lg">
+                    <div class="invalid-feedback">
+                      Hasło musi zawierać co najmniej 8 znaków, w tym jedną wielką literę, jedną cyfrę i jeden znak specjalny.
+                    </div>
+                  </div>
+                  <div class="form-outline mb-4">
+                    <input id="confirm-password" type="password" placeholder="potwierdź hasło" class="form-control form-control-lg">
+                    <div class="invalid-feedback">
+                      Hasła nie są zgodne
+                    </div>
+                  </div>
+                  <div class="form-outline mb-4 d-grid gap-2">
+                    <button type="submit" class="btn btn-info">Zarejestruj się</button>
+                  </div>
+                </form>
+
+                <a id="goToLogin" class="text-primary text-decoration-underline" role="button">
+                  Posiadasz już konto? <strong>Zaloguj się</strong>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
 
@@ -118,8 +169,7 @@
 
 
 
-  
-    <script type="module" src="./src/js/login.js"></script>
+    <script type="module" src="./src/js/auth.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>

@@ -1,3 +1,5 @@
+export const getUser = () => JSON.parse(localStorage.getItem('user')) || null;
+
 export const getCart = () => {
   try {
     return JSON.parse(localStorage.getItem('cart')) || []
@@ -70,4 +72,3 @@ export const showAddToCartPopup = (productTitle) => {
     toastEl.addEventListener('transitionend', () => toastEl.remove());
   }, 2500);
 };
-
