@@ -1,3 +1,5 @@
+import { updateCartCount } from "./utils.js";
+
 document.addEventListener('DOMContentLoaded', () => {
   const accountBtn = document.getElementById('account-btn');
   const user = JSON.parse(localStorage.getItem('user'));
@@ -11,4 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
     accountBtn.textContent = 'Konto';
     accountBtn.href = './auth.html';
   }
+
+  updateCartCount('cart-count');
 });

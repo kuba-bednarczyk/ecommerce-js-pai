@@ -19,7 +19,7 @@ export const getOrder = () => {
 };
 
 export const updateCartCount = (elemId) => {
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  let cart = getCart();
   let totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
   const cartBadge = document.getElementById(`${elemId}`);
   if (cartBadge) {

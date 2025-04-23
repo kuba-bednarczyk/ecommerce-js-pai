@@ -1,8 +1,11 @@
 import { getUser } from "./utils.js";
 
+
+
 document.addEventListener("DOMContentLoaded", () => {
   const logoutBtn = document.getElementById("logout-btn");
 
+  // wylogowanie uzytkownika
   if (logoutBtn) {
     logoutBtn.addEventListener("click", () => {
       const user = getUser();

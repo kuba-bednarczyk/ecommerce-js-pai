@@ -15,8 +15,13 @@ const checkIfLoggedIn = () => {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => checkIfLoggedIn)
-
+document.addEventListener('DOMContentLoaded', () => {
+  checkIfLoggedIn();
+  const user = getUser();
+  if (user) {
+    goToRegister.classList.add('d-none');
+  }
+});
 const switchLoginRegister = () => {
   if (loginSection.classList.contains('d-none')) {
     loginSection.classList.remove('d-none');

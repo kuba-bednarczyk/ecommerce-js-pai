@@ -202,6 +202,12 @@ const updatePaymentMethodDisplay = (creditDiv, blikDiv) => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+  //sprawdzenei czy jestesmy na checkout.html, w przeciwnym wypadku usuwamy obiekt order
+  // const currentPath = window.location.pathname;
+  // if (!currentPath.includes('checkout.html')) {
+  //   localStorage.removeItem('order');
+  // }
+
   const order = localStorage.getItem('order');
   if (!order) {
     window.location.href = './index.html';
