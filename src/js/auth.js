@@ -17,7 +17,8 @@ const checkIfLoggedIn = () => {
 
 document.addEventListener('DOMContentLoaded', () => {
   checkIfLoggedIn();
-  const user = getUser();
+  let user = getUser();
+
   if (user) {
     goToRegister.classList.add('d-none');
   }

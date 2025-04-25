@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return res.json();
     })
     .then(products => {
-      const selectedProducts = products.slice(0,12);
+      const selectedProducts = products.slice(0,8);
 
       let html = ``;
       selectedProducts.forEach(product => {

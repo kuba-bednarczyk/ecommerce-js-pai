@@ -1,8 +1,9 @@
-import { updateCartCount } from "./utils.js";
+import { getUser, updateCartCount } from "./utils.js";
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const accountBtn = document.getElementById('account-btn');
-  const user = JSON.parse(localStorage.getItem('user'));
+  const user = getUser();
 
   if (user && user.loggedIn) {
     // Jeśli użytkownik jest zalogowany, pokaż nazwę użytkownika i zmień link

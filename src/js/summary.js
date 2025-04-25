@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderShippingInfo();
   renderPaymentInfo();
   renderOrderSummary();
-  document.querySelector('.return-anchor').addEventListener('click', () => {
-    localStorage.clear();
+  document.querySelector('.return-btn').addEventListener('click', () => {
+    localStorage.removeItem('order');
   })
 });
