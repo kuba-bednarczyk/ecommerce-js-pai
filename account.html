@@ -62,7 +62,7 @@
   <div class="container py-5 flex-grow-1">
     <h3 class="py-3">Witaj !</h3>
     <div class="card col-lg-12 mb-4 py-3 p-4">
-      <!-- Jeden formularz -->
+      <!-- Account Data Form -->
       <form id="account-form" class="needs-validation" novalidate>
         <h4 class="mb-3">Dane osobowe</h4>
     
@@ -206,109 +206,6 @@
             <div class="invalid-feedback">
               Wpisz poprawny kod pocztowy.
             </div>
-          </div>
-        </div>
-    
-        <hr class="my-4" />
-    
-        <h4 class="mb-3">Rodzaj Płatności</h4>
-    
-        <div class="my-3">
-          <div class="form-check">
-            <input
-              id="credit-card"
-              name="paymentMethod"
-              type="radio"
-              class="checkout-form-check form-check-input"
-              checked
-              required
-            />
-            <label class="form-check-label" for="credit">Karta kredytowa</label>
-          </div>
-          <div class="form-check">
-            <input
-              id="blik"
-              name="paymentMethod"
-              type="radio"
-              class="checkout-form-check form-check-input"
-              required
-            />
-            <label class="form-check-label" for="blik">Blik</label>
-          </div>
-          <div class="form-check">
-            <input
-              id="ondelivery"
-              name="paymentMethod"
-              type="radio"
-              class="checkout-form-check form-check-input"
-              required
-            />
-            <label class="form-check-label" for="ondelivery">Za Pobraniem</label>
-          </div>
-        </div>
-    
-        <div id="payment-blik" class="row gy-3 d-none">
-          <div class="col-md-4">
-            <label for="blik-code" class="form-label">Kod blik</label>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="123123"
-              id="blik-code"
-              required
-            />
-            <small class="text-body-secondary">Potwierdź w aplikacji</small>
-            <div class="invalid-feedback">Niepoprawny kod blik</div>
-          </div>
-        </div>
-    
-        <div id="payment-cc" class="row gy-3">
-          <div class="col-md-6">
-            <label for="cc-name" class="form-label">Imię i nazwisko na karcie</label>
-            <input
-              type="text"
-              class="form-control"
-              id="cc-name"
-              placeholder="IMIĘ NAZWISKO"
-              required
-            />
-            <div class="invalid-feedback">Wpisz poprawnie imię i nazwisko na karcie kredytowej</div>
-          </div>
-    
-          <div class="col-md-6">
-            <label for="cc-number" class="form-label">Numer karty</label>
-            <input
-              type="text"
-              class="form-control"
-              id="cc-number"
-              placeholder="1111 2222 3333 4444"
-              required
-            />
-            <div class="invalid-feedback">Wpisz poprawny numer karty</div>
-          </div>
-    
-          <div class="col-md-3">
-            <label for="cc-expiration" class="form-label">Data wygaśnięcia</label>
-            <input
-              type="text"
-              class="form-control"
-              id="cc-expiration"
-              placeholder="MM/RR"
-              required
-            />
-            <div class="invalid-feedback">Wpisz poprawnie datę wygaśnięcia w formacie MM/RR</div>
-          </div>
-    
-          <div class="col-md-3">
-            <label for="cc-cvc" class="form-label">Kod CVC</label>
-            <input
-              type="text"
-              class="form-control"
-              id="cc-cvc"
-              placeholder="123"
-              required
-            />
-            <div class="invalid-feedback">Wpisz poprawny kod CVC (np. 101)</div>
           </div>
         </div>
     

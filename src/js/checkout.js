@@ -1,5 +1,7 @@
-import { updateCartCount, getOrder } from './utils.js';
+import { updateCartCount, getOrder, getUser } from './utils.js';
 
+
+// obiekty potrzebne do walidacji formularza
 const deliveryDataValidations = [
   {
     id: 'firstName',
@@ -72,6 +74,8 @@ const blikValidations = {
   errorMessage: 'Wpisz poprawny 6-cyfrowy kod Blik.'
 };
 
+
+// bierzaca walidacja formularza
 const attachLiveValidationListeners = () => {
   [...deliveryDataValidations, ...ccValidations, blikValidations].forEach(item => {
     const input = document.getElementById(item.id);
@@ -90,6 +94,8 @@ const attachLiveValidationListeners = () => {
   });
 };
 
+
+// walidacja formularza
 const handleFormValidation = () => {
   let allValid = true;
 
@@ -150,6 +156,7 @@ const handleFormValidation = () => {
   return allValid;
 };
 
+// wyrenderowanie itemow z koszyka obok formularza
 const renderCartItems = () => {
   const order = getOrder();
   const { products, totalPrice, shippingCost } = order;
@@ -184,6 +191,7 @@ const renderCartItems = () => {
   productsListElement.innerHTML = htmlContent;
 };
 
+// wybor metody platnosci w UI 
 const updatePaymentMethodDisplay = (creditDiv, blikDiv) => {
   const creditRadio = document.getElementById('credit-card');
   const blikRadio = document.getElementById('blik');
@@ -201,19 +209,36 @@ const updatePaymentMethodDisplay = (creditDiv, blikDiv) => {
   }
 };
 
+
+
+// nasluchiwanie na zaladowanie kontentu strony
 document.addEventListener('DOMContentLoaded', () => {
-  //sprawdzenei czy jestesmy na checkout.html, w przeciwnym wypadku usuwamy obiekt order
-  // const currentPath = window.location.pathname;
-  // if (!currentPath.includes('checkout.html')) {
-  //   localStorage.removeItem('order');
-  // }
+  // wypelnienie formularza danymi konta jesli uzytkownik jest zalogowany
+  const user = getUser();
+
+  if (user && user.loggedIn && user.shippingData) {
+    const shippingData = user.shippingData;
+
+    document.getElementById("firstName").value = shippingData.firstName || "";
+    document.getElementById("lastName").value = shippingData.lastName || "";
+    document.getElementById("email").value = shippingData.email || "";
+    document.getElementById("phone").value = shippingData.phone || "";
+    document.getElementById("street").value = shippingData.street || "";
+    document.getElementById("house-number").value = shippingData.houseNumber || "";
+    document.getElementById("city").value = shippingData.city || "";
+    document.getElementById("postal-code").value = shippingData.postalCode || "";
+    document.getElementById("country").value = shippingData.country || "";
+  }
 
   const order = localStorage.getItem('order');
+
+  // jeśli nie ma obiektu order - wracamy na strone glowna
   if (!order) {
     window.location.href = './index.html';
     return;
   }
 
+  // update formularza dot. metody platnosci
   const paymentRadios = document.querySelectorAll('input[name="paymentMethod"]');
   const creditDiv = document.getElementById('payment-cc');
   const blikDiv = document.getElementById('payment-blik');
@@ -224,12 +249,16 @@ document.addEventListener('DOMContentLoaded', () => {
     );
   });
 
+  // wywołanie potrzebnych funkcji do wyswietlenia calego UI + bierzaca walidacja formularza
   updatePaymentMethodDisplay(creditDiv, blikDiv);
   updateCartCount('cart-count');
   updateCartCount('form-cart-count');
   renderCartItems();
   attachLiveValidationListeners();
 
+
+
+  // walidacja i wysłanie formularza
   const form = document.querySelector('#checkout-form');
   form.addEventListener('submit', function(event) {
     event.preventDefault();
