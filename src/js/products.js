@@ -2,19 +2,19 @@ import { showAddToCartPopup, updateCartCount } from "./utils.js";
 
 const API_URL = "https://fakestoreapi.com/products";
 const CATEGORIES = [
-  "all",
-  "men's clothing",
-  "women's clothing",
-  "electronics",
-  "jewelery"
+  { id: "all", name: "Wszystkie" },
+  { id: "men's clothing", name: "Odzież męska" },
+  { id: "women's clothing", name: "Odzież damska" },
+  { id: "electronics", name: "Elektronika" },
+  { id: "jewelery", name: "Biżuteria" }
 ];
 
 const renderFilters = (container, callback) => {
   let html = '<div class="mb-4 d-flex gap-2 flex-wrap">';
   CATEGORIES.forEach(cat => {
     html += `
-      <button class="btn btn-outline-dark btn-sm category-filter" data-category="${cat}">
-        ${cat.charAt(0).toUpperCase() + cat.slice(1)}
+      <button class="btn btn-outline-dark btn-sm category-filter" data-category="${cat.id}">
+        ${cat.name}
       </button>
     `;
   });
